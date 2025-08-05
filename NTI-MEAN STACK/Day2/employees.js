@@ -49,6 +49,8 @@ var addNewEmployee=()=>{
     console.log(`Age:${emp.getAge()}`);
     console.log(`Exp:${emp.getExp()}`);
     console.log(`Rate:${emp.getRate()}`);
+
+    alert(`1 - Employee Data\nName:${emp.getName()}\nAge:${emp.getAge()}\nExp:${emp.getExp()}\nRate:${emp.getRate()}`);
 }
 
 var jobCategory=()=>{
@@ -66,6 +68,7 @@ var jobCategory=()=>{
     }
 
     console.log(`Job Category: ${cat}`);
+    alert(`2 - Employee Job Category\nJob Category: ${cat}`);
     return cat;
 }
 
@@ -90,6 +93,7 @@ var Performance_Level=()=>{
             level = "Needs Imporvment";
     }
     console.log(`Performance_Level: ${level}`);
+    alert(`3-Employee Performance Level\nPerformance_Level: ${level}`)
     return level;
 }
 
@@ -107,6 +111,7 @@ var Salary_Calculation=()=>{
 
     salary+=bouns;
     console.log(`Salary: ${salary}`);
+    alert(`4-Employee Salary\nSalary: ${salary}`);
     return salary;
 
 }
@@ -120,19 +125,21 @@ var Shift_Calculation=()=>{
         shift="neight shift.";
     }
     console.log("Shift:",shift);
+    alert(`Employee Shift Time\n${shift}`);
     return shift;
 }
 
 var Run=()=>{
 
     addNewEmployee();
-
-    var newWindow=window.open();
-
     var Category=jobCategory();
     var level=Performance_Level();
     var salary=Salary_Calculation();
     var shift=Shift_Calculation();
+
+    
+    var newWindow=window.open();
+
 
     newWindow.document.write(`
         <h1 style="font-family: Arial; font-size: 28px;">1 - Employee Data</h1>
