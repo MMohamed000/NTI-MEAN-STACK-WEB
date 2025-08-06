@@ -84,7 +84,7 @@ var simple_student_managment=()=>{
     // 1- add some students
     for(var i=0; i<3;++i){
         var name=window.prompt("Please Enter your Name");
-        var age=window.prompt("Please Enter your age");
+        var age=parseInt(window.prompt("Please Enter your age"));
         var grade=window.prompt("Please Enter your grade");
         var isGrad=window.confirm("Are you graduate?");
 
@@ -104,7 +104,7 @@ var simple_student_managment=()=>{
         avarageAge+=studentArray[i].Age;
         if(studentArray[i].isGraduated)noGraduates+=1;
     }
-    avarageAge=parseInt(avarageAge)/parseInt(studentArray.length);
+    avarageAge=avarageAge/studentArray.length;
     notGrads=studentArray.length-noGraduates;
 
     // 3-Use of Object
@@ -157,5 +157,6 @@ var simple_student_managment=()=>{
 simple_student_managment();
 
 console.log("------------------------------End of Task 3---------------------------------------------");
+
 
 
