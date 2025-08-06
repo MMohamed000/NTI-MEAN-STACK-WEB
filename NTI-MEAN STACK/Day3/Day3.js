@@ -133,7 +133,7 @@ var simple_student_managment=()=>{
     });
     // Display New
     studentArray.forEach((studentInfo,indx)=>{
-        for(element in studentInfo){
+        for(var element in studentInfo){
             console.log(`${element}: ${studentInfo[element]}`);
         }
     });
@@ -157,4 +157,5 @@ var simple_student_managment=()=>{
 simple_student_managment();
 
 console.log("------------------------------End of Task 3---------------------------------------------");
+
 
