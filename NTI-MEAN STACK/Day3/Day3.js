@@ -16,7 +16,6 @@ var arrProcessing=()=>{
         }else{
             continue;
         }
-        console.log(element);
     }
 
     array.forEach((element)=>{
@@ -158,3 +157,4 @@ var simple_student_managment=()=>{
 simple_student_managment();
 
 console.log("------------------------------End of Task 3---------------------------------------------");
+
