@@ -11,8 +11,8 @@ var arrProcessing=()=>{
     var posSum=0,total_sum=0;
 
     for(var element=0; element<array.length;++element){
-        if(element[i]>0){
-            posSum+=element[i];
+        if(array[element]>0){
+            posSum+=array[element];
         }else{
             continue;
         }
@@ -156,4 +156,5 @@ var simple_student_managment=()=>{
 }
 
 simple_student_managment();
+
 console.log("------------------------------End of Task 3---------------------------------------------");
