@@ -2,7 +2,7 @@
     document.body.innerHTML+='<h1>Day 4 Task</h1>';
 })();
 
-
+//Task 1: Functions and Callback Functions
 function multiply(a,b){
     var result=a*b;
     return result;
@@ -20,7 +20,7 @@ var result=calculate(2,5,multiply);
 
 displayResult(result);
 
-
+//Task 2: Working with setTimeout and setInterval
 setTimeout(()=>{
     console.log("Hello, User!");
 }
@@ -44,6 +44,7 @@ var doWork=setTimeout(()=>{
     console.log("This will be cleared!");
 },5000);
 clearTimeout(doWork);
+
 
 
 
