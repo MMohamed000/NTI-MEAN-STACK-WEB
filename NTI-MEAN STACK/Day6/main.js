@@ -1,5 +1,7 @@
 let arrayList=[];
 
+
+// Adding new Item
 let create=()=>{
     let Name=document.getElementById("name").value;
     let disc=document.getElementById("desc").value;
@@ -8,6 +10,10 @@ let create=()=>{
     let obj={name:Name, discription:disc,cat:categ,index:i+1};
     arrayList.push(obj);
     localStorage.setItem("LocalProducts",JSON.stringify(arrayList));
+    addTag(obj);
+}
+
+let addTag=(obj)=>{
     table=document.getElementById("tbdy");
     table.innerHTML+= `
         <tr id="${obj.index}">
@@ -22,26 +28,28 @@ let create=()=>{
 }
 
 
+// Display all items
 let read=()=>{
     arrayList=localStorage.getItem("LocalProducts")?
     JSON.parse(localStorage.getItem("LocalProducts")):[];
     table=document.getElementById("tbdy");
+    table.innerHTML="";
     for(let j=0; j<arrayList.length;++j){
         let obj=arrayList[j];
         table.innerHTML+= `
-            <tr id="${obj.index}">
-            <td>${obj.index}</td>
+            <tr id="${j+1}">
+            <td>${j+1}</td>
             <td>${obj.name}</td>
             <td>${obj.discription}</td>
             <td>${obj.cat}</td>
-            <td><input type="submit" value="Update"style="margin-right:30px;" onclick="update(${obj.index});">
-            <input type="submit" value="Delete" onclick="del(${obj.index})"></td>
+            <td><input type="submit" value="Update"style="margin-right:30px;" onclick="update(${j+1});">
+            <input type="submit" value="Delete" onclick="del(${j+1})"></td>
             </tr>
         `;
     }
 }
 
-
+// updating an item
 let update=(indx)=>{
     let obj=arrayList[indx-1];
     tr=document.getElementById(`${obj.index}`);
@@ -58,47 +66,26 @@ let update=(indx)=>{
         obj.discription=disc!==""?disc:obj.discription;
         obj.cat=categ!==""?categ:obj.cat;
 
-        tr.innerHTML=`
-        <td>${obj.index}</td>
-        <td>${obj.name}</td>
-        <td>${obj.discription}</td>
-        <td>${obj.cat}</td>
-        <td><input type="submit" value="Update"style="margin-right: 30px;" onclick="update(${obj.index});">
-        <input type="submit" value="Delete" onclick="del(${obj.index});"></td>
-    `
     localStorage.setItem("LocalProducts",JSON.stringify(arrayList));
+    read();
         let intID=setInterval(()=>{
             element.value="Add";
             element.removeEventListener("click", Update);
             clearInterval(intID);
-        },2000);
+        },1);
     });
 }
 
 
+// deleting an item
 let del=(index)=>{
-    let tbody=document.getElementById("tbdy");
-    tbody.innerHTML='';
     arrayList.splice(index,1);
-    for(let j=0; j<arrayList.length;++j){
-        let obj=arrayList[j];
-        tbody.innerHTML+=`
-        <tr id="${j+1}">
-        <td>${j+1}</td>
-        <td>${obj.name}</td>
-        <td>${obj.discription}</td>
-        <td>${obj.cat}</td>
-        <td><input type="submit" value="Update"style="margin-right:30px;" onclick="update(${j+1});">
-        <input type="submit" value="Delete" onclick="del(${j+1})"></td>
-        </tr>
-        `;
-        obj.index=j+1;
-    }
-    i=arrayList.length+1;
     localStorage.setItem("LocalProducts",JSON.stringify(arrayList));
+    read();
 }
 
 
+// Serch by name / category or both
 let search=()=>{
     let type=document.getElementById("searchForm");
     type.addEventListener("submit",function doWork(event){
@@ -113,16 +100,7 @@ let search=()=>{
             else{
                  for(let obj of arrayList){
                     if((obj.name.toLowerCase()===Name.toLowerCase())){
-                        tbody.innerHTML+=`
-                        <tr id="${obj.index}">
-                        <td>${obj.index}</td>
-                        <td>${obj.name}</td>
-                        <td>${obj.discription}</td>
-                        <td>${obj.cat}</td>
-                        <td><input type="submit" value="Update"style="margin-right:30px;" onclick="update(${obj.index});">
-                        <input type="submit" value="Delete" onclick="del(${obj.index})"></td>
-                        </tr>
-                        `;
+                        addTag(obj);
                     }
                 }
             }
@@ -130,22 +108,11 @@ let search=()=>{
         }
         for(let obj of arrayList){
             if((obj.cat.toLowerCase()===category.toLowerCase()) && (obj.name.toLowerCase()===Name.toLowerCase() || Name==='')){
-                tbody.innerHTML+=`
-                <tr id="${obj.index}">
-                <td>${obj.index}</td>
-                <td>${obj.name}</td>
-                <td>${obj.discription}</td>
-                <td>${obj.cat}</td>
-                <td><input type="submit" value="Update"style="margin-right:30px;" onclick="update(${obj.index});">
-                <input type="submit" value="Delete" onclick="del(${obj.index})"></td>
-                </tr>
-                `;
+                addTag(obj);
             }
         }
     })
 }
-
-
 
 let form = document.getElementById("myform");
 form.addEventListener("submit", function(event) {
@@ -153,10 +120,9 @@ event.preventDefault();
     create();
 });
 
-
+// loading from localStorage
 (()=>{
     read();
 })();
-
 
 search();
