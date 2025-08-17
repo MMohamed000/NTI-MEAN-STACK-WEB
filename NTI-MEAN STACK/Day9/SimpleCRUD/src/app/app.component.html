@@ -1,0 +1,62 @@
+<h3>Add Item</h3>
+
+<form id="myform">
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name" placeholder="Enter name" [(ngModel)]="Name">
+
+  <label for="desc">Description:</label>
+  <input type="text" id="desc" name="description" placeholder="Enter description" [(ngModel)]="disc">
+
+  <label for="category">Category:</label>
+  <select id="category" name="category" [(ngModel)]="categ">
+    <option value="Technology">Technology</option>
+    <option value="Education">Education</option>
+    <option value="Other">Other</option>
+  </select>
+
+  <button  class="btn btn-outline-success me-2" (click)="create();set();">{{newButton}}</button>
+
+</form>
+
+<form 
+  id="searchForm" 
+  style="max-width: fit-content; margin: 20px auto; display: flex; gap: 20px; align-items: center; background: white; padding: 10px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+
+  <label for="searchCategory" style="font-weight: bold; color: #555;">Search by Category:</label>
+  <select id="searchCategory" name="searchCategory" [(ngModel)]="categ">
+    <option value="All">All</option>
+    <option value="Technology">Technology</option>
+    <option value="Education">Education</option>
+    <option value="Other">Other</option>
+  </select>
+
+  <input type="text" id="searchInput" name="searchName" placeholder="Search by a name" [(ngModel)]="Name">
+
+  <button type="submit" class="btn btn-sm btn-primary me-2" (click)="search()">Search</button>
+</form>
+
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Category</th>
+      <th>Action</th>
+    </tr>
+    @for (obj of arrayList; track $index) {
+      <tr [id]="$index+1">
+        <td>{{$index+1}}</td>
+        <td>{{ obj.name }}</td>
+        <td>{{ obj.discription }}</td>
+        <td>{{ obj.cat }}</td>
+        <td>
+          <button class="btn btn-sm btn-primary me-2" (click)="update($index)">Update</button>
+          <button class="btn btn-sm btn-danger" (click)="del($index)">Delete</button>
+        </td>
+      </tr>
+    }
+  </thead>
+  <tbody id="tbdy">
+  </tbody>
+</table>
