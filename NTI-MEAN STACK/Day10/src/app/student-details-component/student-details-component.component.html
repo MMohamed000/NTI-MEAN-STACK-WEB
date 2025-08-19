@@ -1,0 +1,22 @@
+<table>
+  <thead>
+    <tr>
+      <th>Student ID</th>
+      <th>Student Name</th>
+      <th>Student Age</th>
+      <th>Major</th>
+    </tr>
+    @if(student) {
+      <tr>
+        <td>{{student?.id}}</td>
+        <td>{{ student?.name }}</td>
+        <td>{{ student?.age }}</td>
+        <td>{{ student?.major }}</td>
+      </tr>
+    }@else{
+        <td colspan="4"> Student Not Found </td>
+    }
+  </thead>
+  <tbody id="tbdy">
+  </tbody>
+</table>

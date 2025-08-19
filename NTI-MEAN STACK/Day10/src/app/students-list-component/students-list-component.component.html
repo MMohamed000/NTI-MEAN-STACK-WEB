@@ -1,0 +1,30 @@
+<table>
+  <thead>
+    <tr>
+      <th>Student ID</th>
+      <th>Student Name</th>
+      <th>Student Age</th>
+      <th>Major</th>
+    </tr>
+    @for (obj of studentsInfo; track $index) {
+      <tr [id]="$index+1">
+        <td>{{obj?.id}}</td>
+        <td>{{ obj?.name }}</td>
+        <td>{{ obj?.age }}</td>
+        <td>{{ obj?.major }}</td>
+      </tr>
+    }@empty {
+      <tr>
+        <td>Empty DB</td>
+      </tr>
+    }
+  </thead>
+  <tbody id="tbdy">
+  </tbody>
+</table>
+
+<app-student-card-component [StudentID]="studentsInfo[0].name" 
+[StudentCourses]="studentsInfo[0].course" [StudentAge]="studentsInfo[0].age" 
+[StudentMajor]="studentsInfo[0].major">
+<span>View Details</span>
+</app-student-card-component>

@@ -1,0 +1,18 @@
+<table>
+  <thead>
+    <tr>
+      <th>Student ID</th>
+      @for(course of selectedStudent.courses;track $index){
+        <th>Course {{$index+1}}</th>
+      }
+    </tr>
+    <td>{{selectedStudent?.id}}</td>
+    @for(course of selectedStudent.courses;track $index){
+        <td>{{course}}</td>
+    }@empty {
+        <td>No courses</td>
+    }
+  </thead>
+  <tbody id="tbdy">
+  </tbody>
+</table>
