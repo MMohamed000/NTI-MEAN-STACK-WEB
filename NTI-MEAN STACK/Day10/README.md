@@ -6,7 +6,7 @@
  5. Lifecycle Hooks
  6. Not Found Page
  7. Bonus Challenge<br/>
- • Add a route /students/:id/courses to display a student’s courses in a nested component.
+ • Add a route /students/:id/courses to display a student’s courses in a nested component.<br/>
  • Use Route Parameters with ActivatedRoute to fetch the student’s ID
 
 
@@ -37,5 +37,6 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
 
 
