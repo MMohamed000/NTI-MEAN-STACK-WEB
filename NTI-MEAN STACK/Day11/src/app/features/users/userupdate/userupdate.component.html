@@ -1,0 +1,31 @@
+<div class="container mt-5">
+  <h3>Update Post</h3>
+  <form [formGroup]="UserForm" (ngSubmit)="onSubmit()">
+    
+    <div class="mb-3">
+      <label for="userName" class="form-label">UserName:</label>
+      <input id="userName" class="form-control" formControlName="userName"  [ngClass]="{'invalid':UserForm.get('userName')?.invalid && UserForm.get('userName')?.touched}">
+      <div *ngIf="UserForm.get('userName')?.touched && UserForm.get('userName')?.invalid">
+        <small class="text-danger" *ngIf="UserForm.get('userName')?.errors?.['required']">userName is required.</small>
+      </div> 
+    </div>
+
+    <div class="mb-3">
+      <label for="email" class="form-label">UserEmail:</label>
+      <input id="email" class="form-control" formControlName="email"  [ngClass]="{'invalid':UserForm.get('email')?.invalid && UserForm.get('email')?.touched}">
+      <div *ngIf="UserForm.get('email')?.touched && UserForm.get('email')?.invalid">
+        <small class="text-danger" *ngIf="UserForm.get('email')?.errors?.['required']">email is required.</small>
+      </div> 
+    </div>
+
+    <div class="mb-3">
+      <label for="email" class="form-label">UserPassword:</label>
+      <input id="password" class="form-control" formControlName="password"  [ngClass]="{'invalid':UserForm.get('password')?.invalid && UserForm.get('password')?.touched}">
+      <div *ngIf="UserForm.get('password')?.touched && UserForm.get('password')?.invalid">
+        <small class="text-danger" *ngIf="UserForm.get('password')?.errors?.['required']">password is required.</small>
+      </div> 
+    </div>
+
+    <button class="btn btn-primary" type="submit">Submit</button>
+  </form>
+</div>
