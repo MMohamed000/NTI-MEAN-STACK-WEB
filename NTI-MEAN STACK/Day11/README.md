@@ -1,9 +1,9 @@
 # API USED
-endpoint:https://fakestoreapi.com/users
-GET /users
-UPDATE /users/{id}
-DELETE /users/{id}
-PUT /users/{id}
+### endpoint:https://fakestoreapi.com/users</br>
+### GET /users</br>
+### UPDATE /users/{id}</br>
+### DELETE /users/{id}</br>
+### PUT /users/{id}</br>
 
 # MyApp
 
@@ -32,6 +32,7 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
 
 
 
