@@ -1,0 +1,17 @@
+<div class="container mt-5">
+  <h3>Users List</h3>
+
+  <div class=" row">
+    <div class="col-md-4 my-1" *ngFor="let post of posts" >
+        <div class="body card shadow mx-1 h-100 p-1">
+            <h5 style="height: 50;color: sandybrown">UserID:{{ post?.id }}</h5>
+            <p style="height: 200;">UserName:{{ post?.username }}</p>
+            <p style="height: 200;">UserEmail:{{ post?.email }}</p>
+            <p style="height: 200;">UserPassword:{{ post?.password }}</p>
+            <button class="btn btn-info mb-1" routerLink="/users/{{ post.id }}">Edit</button>
+            <button class="btn btn-danger" (click)="deletePost(post.id)">Delete</button>
+        </div>
+    </div>
+
+</div>
+</div>
